@@ -1,0 +1,20 @@
+[
+    {
+      "brand": "Honda",
+      "model": "Civic",
+      "year": 2010,
+      "km": 120000
+    },
+    {
+      "brand": "Toyota",
+      "model": "Yaris",
+      "year": 2008,
+      "km": 230000
+    },
+    {
+      "brand": "Fiat",
+      "model": "500",
+      "year": 2015,
+      "km": 35000
+    }
+  ]  

@@ -1,7 +1,7 @@
 import CarModel from './CarModel'
 import React, { Component } from 'react';
 import { Container, Table } from 'react-bootstrap';
-
+import carsData from "./cars.json"
 
 class CarsComponent extends Component {
 
@@ -10,9 +10,7 @@ class CarsComponent extends Component {
         super();
 
         this.state = {
-            cars: [new CarModel("Honda", "Civic", 2010, 120000),
-            new CarModel("Toyota", "Yaris", 2008, 230000),
-            new CarModel("Fiat", "500", 2015, 35000)]
+            cars: carsData.map(plainCar => new CarModel(plainCar))
         }
 
         this.addCar = this.addCar.bind(this);

@@ -10,6 +10,7 @@ class CarsComponent extends Component {
         super();
 
         this.state = {
+            // converting the JSON plain object array (carsData) into a "CarModel" array
             cars: carsData.map(plainCar => new CarModel(plainCar))
         }
 

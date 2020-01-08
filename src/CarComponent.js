@@ -2,6 +2,8 @@ import CarModel from './CarModel'
 import React, { Component } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import carsData from "./cars.json"
+import { Redirect } from 'react-router-dom'
+
 
 class CarsComponent extends Component {
 
@@ -11,7 +13,8 @@ class CarsComponent extends Component {
 
         this.state = {
             // converting the JSON plain object array (carsData) into a "CarModel" array
-            cars: carsData.map(plainCar => new CarModel(plainCar))
+            cars: carsData.map(plainCar => new CarModel(plainCar)),
+            redirectTo: null
         }
 
         this.addCar = this.addCar.bind(this);
@@ -36,9 +39,16 @@ class CarsComponent extends Component {
         }
 
         this.setState(newState);
+
+        this.selectedCar = this.selectedCar.bind(this);
     }
 
 
+    selectedCar(id) {
+        this.setState({
+            redirectTo: id
+        })
+    }
 
     render() {
 
@@ -54,12 +64,17 @@ class CarsComponent extends Component {
         //                 </tr>)
         // }
 
+        if (this.state.redirectTo) {
+            const redirect = "/cars/" + this.state.redirectTo
+            return <Redirect to={redirect}/>
+        }
 
         if (this.state.cars === null) {
             return false;
         }
 
-        var carRows = this.state.cars.map(car => <tr>
+        var carRows = this.state.cars.map(car => 
+        <tr key={car.id} onClick={(e) => {this.selectedCar(car.id)}}>
             <td>{car.brand}</td>
             <td>{car.model}</td>
             <td>{car.km}</td>

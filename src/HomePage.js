@@ -6,12 +6,6 @@ export default class HomePage extends Component {
 
     constructor(props) {
         super(props);
-
-        this.enter = this.enter.bind(this);
-    }
-
-    enter() {
-        this.props.notifyEnter();
     }
 
     render() {
@@ -23,7 +17,7 @@ export default class HomePage extends Component {
                     extra attention to featured content or information.
                 </p>
                 <p>
-                    <Button variant="primary" onClick={this.enter}>Enter</Button>
+                    <Button variant="success" href="#/cars">Enter</Button>
                 </p>
             </Jumbotron>
         )
